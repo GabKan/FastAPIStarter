@@ -74,7 +74,7 @@ def edit_todo_page(request: Request, id: int, db:SessionDep, user:AuthDep):
         request=request, 
         name="edit.html",
         context={
-            "current_user": user,
+            "user": user,
             "todo": todo,
             "todos": todos
         }
@@ -85,5 +85,5 @@ async def todo_page(request: Request, user: AuthDep):
     return templates.TemplateResponse(
         request=request, 
         name="todo.html",
-        context={"current_user": user}
+        context={"user": user}
     )
